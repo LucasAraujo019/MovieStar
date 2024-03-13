@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     require_once("globals.php");
     require_once("db.php");
     require_once("models/Message.php");
@@ -9,7 +8,7 @@
     $flassMessage = $message->getMessage();
 
     if(!empty($flassMessage["msg"])){
-        // Limpar a mensagem
+        $message->clearMessage();
     }
 ?>
 

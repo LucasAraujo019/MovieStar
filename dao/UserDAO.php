@@ -1,5 +1,6 @@
 <?php 
     require_once("models/User.php");
+    include_once("models/Message.php");
 
     class UserDAO implements UserDaoInterface {
         private $conn;
@@ -20,34 +21,65 @@
             $user->password = $data["password"];
             $user->image = $data["image"];
             $user->bio = $data["bio"];
-            $user->token = $data["id"];
+            $user->token = $data["token"];
 
             return $user;
         }
+
         public function create(User $user, $authUser = false){
 
         }
+
         public function update(User $user){
 
         }
+
         public function verifyToken($protected = false){
 
         }
+
         public function setTokenToSession($token, $redirect = true){
 
         }
+
         public function authenticateUser($email, $password){
             
         }
+
         public function findByEmail($email){
 
+            if($email != ""){
+                
+                $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = :email");
+
+                $stmt->bindParam(":email", $email);
+
+                $stmt->execute();
+
+                if($stmt->rowCount() > 0){
+
+                    $data = $stmt->fetch();
+                    $user = $this->buildUser($data);
+
+                    return $user;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
+
         }
+
         public function findById($id){
 
         }
+
         public function findByToken($token){
 
         }
+
         public function changePassword(User $user){
 
         }
