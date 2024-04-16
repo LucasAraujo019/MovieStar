@@ -87,6 +87,9 @@
     background-color: #000;
     color: #FFF;
     min-height: 65vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 /* Login / Register */ 
@@ -151,6 +154,30 @@
 
 .edit-profile-page .card-btn {
     width: auto;
+}
+
+/* Nre Movie */ 
+.new-movei-container{
+    text-align: center;
+}
+
+#add-movie-form{
+    text-align: center;
+}
+
+.movie-image-container{
+    height: 400px;
+    min-width: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+.page-title:after {
+    content: "";
+    width: 300px;
+    border-bottom: 2px solid #F5C518;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Footer */ 
