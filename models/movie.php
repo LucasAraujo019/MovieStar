@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-class Movie {
-   
+  class Movie {
+
     public $id;
     public $title;
     public $description;
@@ -9,28 +9,25 @@ class Movie {
     public $trailer;
     public $category;
     public $length;
-    public $user_id;
+    public $users_id;
 
-    public function imageGenerateName()
-    {
-        return bin2hex(random_bytes(60)). ".jpg";
+    public function imageGenerateName() {
+      return bin2hex(random_bytes(60)) . ".jpg";
     }
 
-}
-    interface MovieDAOInterface {
+  }
 
-        public function buildMovie($data);
-        public function findAll ();
-        public function getLatesMovies();
-        public function getMovieByCategory($category);
-        public function getMovieByUserId($id);
-        public function findById($id);
-        public function findByTitle($title);
-        public function create(Movie $movie);
-        public function update(Movie $movie);
-        public function destroy(Movie $id);
-    }
+  interface MovieDAOInterface {
 
+    public function buildMovie($data);
+    public function findAll();
+    public function getLatestMovies();
+    public function getMoviesByCategory($category);
+    public function getMoviesByUserId($id);
+    public function findById($id);
+    public function findByTitle($title);
+    public function create(Movie $movie);
+    public function update(Movie $movie);
+    public function destroy($id);
 
-
-?>
+  }
